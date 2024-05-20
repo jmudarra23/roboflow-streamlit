@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 from datetime import datetime
 
-import os
 
 def get_stats(date, labeler_code):
     # today_date = datetime.now().strftime('%Y-%m-%d')
@@ -21,14 +20,15 @@ def get_stats(date, labeler_code):
         data = response.json()['data']
         boxes = sum(entry['boxesDrawn'] for entry in data)
         imgs = sum(entry['imagesLabeled'] for entry in data)
-        st.success(f'Cajas totales: {boxes}\nNúmero de imágenes: {imgs}')
+        st.success(f'Cajas totales: {boxes}')
+        st.success(f'Número de imágenes: {imgs}')
     else:
         st.error("Falla algo... llama a Jesús " + str(response.status_code))
 
 # Obtener las variables de entorno
 api_key = st.secrets['API_KEY']
 
-st.title("Estadísticas de Imágenes")
+st.title("Etiquetado imágenes Wizard Football ⚽")
 
 labelers = {
     "uy78ZKhgl9d2Dl1tV8v20Q6DbTb2": "José Enrique",
