@@ -41,7 +41,7 @@ with st.sidebar.expander("**Etiquetador**"):
     if labeler:
         labeler_code = [code for code, name in labelers.items() if name == labeler][0]
     else:
-        st.info("Porfavor, seleccione un nombre.")
+        st.info("Por favor 🙏, seleccione un nombre.")
 
 st.sidebar.markdown("---")
 
