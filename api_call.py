@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 from datetime import datetime
 
-from dotenv import load_dotenv
 import os
 
 def get_stats(date, labeler_code):
@@ -26,11 +25,8 @@ def get_stats(date, labeler_code):
     else:
         st.error("Falla algo... llama a Jesús " + str(response.status_code))
 
-# Cargar las variables de entorno desde el archivo .env
-load_dotenv()
-
 # Obtener las variables de entorno
-api_key = os.getenv('API_KEY')
+api_key = st.secrets['API_KEY']
 
 st.title("Estadísticas de Imágenes")
 
