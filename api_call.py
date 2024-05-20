@@ -2,12 +2,16 @@ import streamlit as st
 import requests
 from datetime import datetime
 
-def get_stats():
-    today_date = datetime.now().strftime('%Y-%m-%d')
+from dotenv import load_dotenv
+import os
+
+def get_stats(date, labeler_code):
+    # today_date = datetime.now().strftime('%Y-%m-%d')
+    today_date = date
     url = "https://api.roboflow.com/socceranalytics/stats"
     params = {
-        "api_key": "OzBJXsvBWzwsfwDQjSPF",
-        "userId": "uy78ZKhgl9d2Dl1tV8v20Q6DbTb2",
+        "api_key": api_key,
+        "userId": labeler_code,
         "startDate": today_date,
         "endDate": today_date
     }
@@ -20,13 +24,40 @@ def get_stats():
         imgs = sum(entry['imagesLabeled'] for entry in data)
         st.success(f'Cajas totales: {boxes}\nNúmero de imágenes: {imgs}')
     else:
-        st.error("Falla algo... llama a Héctor " + str(response.status_code))
+        st.error("Falla algo... llama a Jesús " + str(response.status_code))
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
+
+# Obtener las variables de entorno
+api_key = os.getenv('API_KEY')
 
 st.title("Estadísticas de Imágenes")
 
-# Botón para actualizar estadísticas
-if st.button("Actualizar"):
-    get_stats()
+labelers = {
+    "uy78ZKhgl9d2Dl1tV8v20Q6DbTb2": "José Enrique",
+}
+
+with st.sidebar.expander("**Etiquetador**"):
+    labeler = st.selectbox(
+        "**Nombre**", list(labelers.values()), index=None
+    )
+    if labeler:
+        labeler_code = [code for code, name in labelers.items() if name == labeler][0]
+    else:
+        st.info("Porfavor, seleccione un nombre.")
+
+st.sidebar.markdown("---")
+
+# Crear el selector de fechas
+date = st.sidebar.date_input(
+    "Selecciona una fecha",
+    datetime.now()
+)
 
 # Llamar a la función para obtener estadísticas al iniciar la aplicación
-get_stats()
+get_stats(date, labeler_code)
+
+# Botón para actualizar estadísticas
+if st.button("Actualizar"):
+    get_stats(date, labeler_code)
