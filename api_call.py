@@ -51,9 +51,15 @@ date = st.sidebar.date_input(
     datetime.now()
 )
 
-# Llamar a la función para obtener estadísticas al iniciar la aplicación
-get_stats(date, labeler_code)
-
-# Botón para actualizar estadísticas
-if st.button("Actualizar"):
+if labeler:
+    # Llamar a la función para obtener estadísticas al iniciar la aplicación
     get_stats(date, labeler_code)
+
+    # Botón para actualizar estadísticas
+    if st.button("Actualizar"):
+        
+        get_stats(date, labeler_code)
+        st.empty()
+
+else:
+    st.info("Porfavor, elige tu nombre en el menú de la izquierda y la fecha de hoy.")
