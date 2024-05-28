@@ -2,7 +2,7 @@ import streamlit as st
 
 workspaces = {
     "socceranalytics": {
-        "subdomain": "socceranalytics",
+        "subdomain": "socceranalytics-5vbz1",
         "api_key": st.secrets['API_KEY'],
         "labelers": {
             "lSjzzgbjkmNbcNh4xpae27ywdd92": "Elite Sports17",
