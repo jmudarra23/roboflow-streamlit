@@ -14,6 +14,7 @@ workspaces = {
         "api_key": st.secrets['API_KEY2'],
         "labelers": {
             "n7XjGcQyOURfX4CSmFX3Q617QBZ2": "Alessa Marce",
+            "jSkhmVdFEzZCZDjbByrSpO7Ua3M2": "Victoria Bajo",
             "lSjzzgbjkmNbcNh4xpae27ywdd92": "Elite Sports17",
         }
     }
