@@ -7,6 +7,7 @@ workspaces = {
         "labelers": {
             "lSjzzgbjkmNbcNh4xpae27ywdd92": "Elite Sports17",
             "uy78ZKhgl9d2Dl1tV8v20Q6DbTb2": "José Enrique",
+            "l3bW925TA7hgB3e9XNcjTzJoPGB3": "01",
         }
     },
     "socceranalytics2": {
