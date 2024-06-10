@@ -20,3 +20,6 @@ workspaces = {
         }
     }
 }
+
+MIN_BOXES = 6500
+MIN_IMAGES = 450
