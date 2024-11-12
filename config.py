@@ -7,7 +7,9 @@ workspaces = {
         "labelers": {
             "lSjzzgbjkmNbcNh4xpae27ywdd92": "Elite Sports17",
             "EhV0M7z3ZRfzW6CLd7Ho2fKFmwe2": "Niel John Butad",
+            "3pM0YPyULBYBdnJP0eBLUu8HaJv1": "Developers IPSUM PH",
             "l3bW925TA7hgB3e9XNcjTzJoPGB3": "Etiquetador SR",
+            "uy78ZKhgl9d2Dl1tV8v20Q6DbTb2": "Jose Enrique Ferrero",
         }
     },
     "socceranalytics2": {
